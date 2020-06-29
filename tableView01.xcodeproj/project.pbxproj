@@ -16,6 +16,7 @@
 		564A9BC624A4762F00381356 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A9BC524A4762F00381356 /* EmojiTableViewController.swift */; };
 		564A9BC924A479CA00381356 /* EmojiMolel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A9BC824A479CA00381356 /* EmojiMolel.swift */; };
 		5654CF1B24A88481002DD769 /* NewEmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5654CF1A24A88481002DD769 /* NewEmojiTableViewController.swift */; };
+		567D5AFE24A9B86B00D3C536 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567D5AFD24A9B86B00D3C536 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		564A9BC524A4762F00381356 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 		564A9BC824A479CA00381356 /* EmojiMolel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMolel.swift; sourceTree = "<group>"; };
 		5654CF1A24A88481002DD769 /* NewEmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmojiTableViewController.swift; sourceTree = "<group>"; };
+		567D5AFD24A9B86B00D3C536 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		564A9BAA24A4672600381356 /* tableView01 */ = {
 			isa = PBXGroup;
 			children = (
+				567D5AFC24A9B83500D3C536 /* Services */,
 				564A9BC724A4793000381356 /* Models */,
 				564A9BC024A4675400381356 /* Controllers */,
 				564A9BBF24A4673E00381356 /* Storyboards */,
@@ -114,6 +117,14 @@
 				564A9BC824A479CA00381356 /* EmojiMolel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		567D5AFC24A9B83500D3C536 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				567D5AFD24A9B86B00D3C536 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				564A9BC624A4762F00381356 /* EmojiTableViewController.swift in Sources */,
 				5654CF1B24A88481002DD769 /* NewEmojiTableViewController.swift in Sources */,
 				564A9BAC24A4672600381356 /* AppDelegate.swift in Sources */,
+				567D5AFE24A9B86B00D3C536 /* StorageManager.swift in Sources */,
 				564A9BC424A472B600381356 /* EmojiTableViewCell.swift in Sources */,
 				564A9BC924A479CA00381356 /* EmojiMolel.swift in Sources */,
 				564A9BAE24A4672600381356 /* SceneDelegate.swift in Sources */,

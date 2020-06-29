@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Emoji {
+struct Emoji: Codable {
     let emoji: String
     let name: String
-    let decription: String
+    let description: String
     var isFavorite: Bool
 }

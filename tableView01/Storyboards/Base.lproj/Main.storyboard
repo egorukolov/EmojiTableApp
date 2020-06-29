@@ -62,6 +62,7 @@
                                     <outlet property="descriptionLabel" destination="pia-5t-jlt" id="gkt-hn-8cH"/>
                                     <outlet property="emojiLabel" destination="8nI-0X-jni" id="JxG-1G-k67"/>
                                     <outlet property="nameLabel" destination="wPr-51-l3U" id="sdd-Cn-UdH"/>
+                                    <segue destination="cej-Mb-oej" kind="show" identifier="editEmoji" id="ndo-f2-sr2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -73,7 +74,7 @@
                     <navigationItem key="navigationItem" id="Nxe-Di-rye">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DYs-94-6PD">
                             <connections>
-                                <segue destination="cej-Mb-oej" kind="presentation" id="xmh-Ok-5Zg"/>
+                                <segue destination="cej-Mb-oej" kind="show" id="xmh-Ok-5Zg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -87,7 +88,7 @@
             <objects>
                 <tableViewController id="Ljh-YQ-EG2" customClass="NewEmojiTableViewController" customModule="tableView01" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hPW-Wo-RZn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -230,7 +231,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jtv-R9-6Wg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HlG-9D-Ckl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -243,4 +244,7 @@
             <point key="canvasLocation" x="1866.6666666666667" y="112.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ndo-f2-sr2"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,11 +10,14 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
 
-    var objects = [
-    Emoji(emoji: "🥰", name: "Love", decription: "Let's love each other", isFavorite: false),
-    Emoji(emoji: "😅", name: "Oops", decription: "No one saw it", isFavorite: false),
-    Emoji(emoji: "😂", name: "Funny", decription: "this is very funny", isFavorite: false)
-    ]
+    var objects: [Emoji] = []
+    
+//    Example:
+//    [
+//    Emoji(emoji: "🥰", name: "Love", description: "Let's love each other", isFavorite: false),
+//    Emoji(emoji: "😅", name: "Oops", description: "No one saw it", isFavorite: false),
+//    Emoji(emoji: "😂", name: "Funny", description: "this is very funny", isFavorite: false)
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +25,38 @@ class EmojiTableViewController: UITableViewController {
         self.title = "Emoji Raider"
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
+        // recovery data from UserDefaults
+        objects = StorageManager.shared.fetchEmoji()
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         
         guard segue.identifier == "saveSegue" else { return }
         let sourceVC = segue.source as! NewEmojiTableViewController
-        let emoji = sourceVC.emoji
+        let emoji = sourceVC.emojiNew
         
-        let newIndexPath = IndexPath(row: objects.count, section: 0)
-        objects.append(emoji)
-        tableView.insertRows(at: [newIndexPath], with: .fade)
-        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            objects[selectedIndexPath.row] = emoji
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+            
+        } else {
+            let newIndexPath = IndexPath(row: objects.count, section: 0)
+            objects.append(emoji)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+        }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == "editEmoji" else { return }
+        let indexPath = tableView.indexPathForSelectedRow!
+        let emoji = objects[indexPath.row]
+        let navigationVC = segue.destination as! UINavigationController
+        let newEmojiVC = navigationVC.topViewController as! NewEmojiTableViewController
+        newEmojiVC.emojiNew = emoji
+        newEmojiVC.title = "Edit"
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,6 +82,7 @@ class EmojiTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            StorageManager.shared.deleteEmoji(at: indexPath.row)
             objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath] , with: .fade )
         }
@@ -106,4 +128,3 @@ class EmojiTableViewController: UITableViewController {
         return action
     }
 }
-
